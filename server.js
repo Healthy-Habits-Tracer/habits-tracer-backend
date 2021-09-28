@@ -12,7 +12,7 @@ app.use(express.json());
 mongoose.connect(`${MONGO_PORT}/habits`,{useNewUrlParser: true, useUnifiedTopology: true});
 const {createUserController,updateUserController,UserController,removeHabitRecord}=require('./controllers/UserController');
 
-
+console.log();
 
 app.post('/create-user',createUserController);
 app.put('/update-user/:email',updateUserController);
