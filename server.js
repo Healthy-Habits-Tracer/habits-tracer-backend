@@ -10,12 +10,13 @@ const PORT = process.env.PORT;
 const MONGO_PORT = process.env.MONGO_PORT;
 app.use(express.json());
 mongoose.connect(`${MONGO_PORT}/habits`,{useNewUrlParser: true, useUnifiedTopology: true});
-const {createUserController,updateUserController,UserController,removeHabitRecord}=require('./controllers/UserController');
+const {createUserController,updateUserController,UserController,removeHabitRecord,OneUserController}=require('./controllers/UserController');
 
 
 app.post('/create-user',createUserController);
 app.put('/update-user/:email',updateUserController);
 app.get('/user',UserController);
+app.get('/one-user',OneUserController);
 app.delete('/remove-habit/:email',removeHabitRecord);
 
 

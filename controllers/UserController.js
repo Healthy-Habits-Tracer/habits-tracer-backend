@@ -7,6 +7,12 @@ let UserController= (req,res)=>{
   });
 };
 
+let OneUserController = (req,res)=>{
+  let userEmail  = req.query.email;
+  UserModel.findOne({email:userEmail}).then(data=>{
+    res.json(data);
+  });
+};
 
 const createUserController=async (req,res)=>{
   let userEmail=req.query.email;
@@ -46,5 +52,6 @@ module.exports={
   createUserController,
   updateUserController,
   UserController,
-  removeHabitRecord
+  removeHabitRecord,
+  OneUserController
 };
