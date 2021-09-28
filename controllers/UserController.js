@@ -2,8 +2,7 @@
 const {UserModel} = require('../models/UserModel');
 
 let UserController= (req,res)=>{
-  let userEmail=req.query.email;
-  UserModel.findOne({email:userEmail}).then(data=>{
+  UserModel.find({}).then(data=>{
     res.json(data);
   });
 };
